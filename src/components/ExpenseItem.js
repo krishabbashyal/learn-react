@@ -3,10 +3,10 @@ import React from "react";
 function ExpenseItem() {
   return (
     <div>
-      <div>Date</div>
+      <div>June 14th, 2022</div>
       <div>
-        <h2>Title</h2>
-        <div>Titlle</div>
+        <h2>New GPU</h2>
+        <div>$767.45</div>
       </div>
     </div>
   );
