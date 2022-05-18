@@ -1,6 +1,6 @@
 import Expenses from "./components/Expenses/Expenses";
 
-function App() {
+const App = () => {
   // prettier-ignore
   const expenses = [
     { id: "1", title: "6800XT GPU", price: 767.34, date: new Date(2022, 5, 12) },
@@ -16,6 +16,6 @@ function App() {
       </h1>
     </div>
   );
-}
+};
 
 export default App;
