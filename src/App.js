@@ -1,4 +1,5 @@
 import Expenses from "./components/Expenses/Expenses";
+import NewExpenses from "./components/NewExpenses/NewExpenses";
 
 const App = () => {
   // prettier-ignore
@@ -10,10 +11,8 @@ const App = () => {
   ];
   return (
     <div>
-      <h1>
-        Welcome, from here you can take a look at all of your previous expenses.
-        <Expenses items={expenses} />
-      </h1>
+      <NewExpenses />
+      <Expenses items={expenses} />
     </div>
   );
 };
