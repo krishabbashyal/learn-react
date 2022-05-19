@@ -9,9 +9,14 @@ const App = () => {
     { id: "3", title: "Anne Pro 2", price: 67.34, date: new Date(2022, 5, 12) },
     { id: "4", title: "Logitech G Pro Superlight", price: 127.34, date: new Date(2022, 5, 12) },
   ];
+
+  const onCompletionHandler = (enteredExpenseData) => {
+    console.log(enteredExpenseData);
+  };
+
   return (
     <div>
-      <NewExpenses />
+      <NewExpenses giveData={onCompletionHandler} />
       <Expenses items={expenses} />
     </div>
   );
