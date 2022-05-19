@@ -1,32 +1,49 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
+  //
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredPrice, setEnteredPrice] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
 
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
-    console.log(event.target.value);
   };
 
   const priceChangeHandler = (event) => {
     setEnteredPrice(event.target.value);
-    console.log(event.target.value);
   };
 
   const dateChangeHandler = (event) => {
     setEnteredDate(event.target.value);
-    console.log(event.target.value);
+  };
+
+  const submitHandler = (event) => {
+    event.preventDefault(); // Stops the website from refreshing when form is submitted
+
+    const expenseData = {
+      title: enteredTitle,
+      price: enteredPrice,
+      date: new Date(enteredDate),
+    };
+
+    console.log(expenseData);
+    setEnteredTitle("");
+    setEnteredPrice("");
+    setEnteredDate("");
   };
 
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" onChange={titleChangeHandler} />
+          <input
+            type="text"
+            value={enteredTitle} // Allows for resetting of input after form submit
+            onChange={titleChangeHandler}
+          />
         </div>
         <div className="new-expense__control">
           <label>Price</label>
@@ -34,6 +51,7 @@ const ExpenseForm = () => {
             type="number"
             min="0.00"
             step="0.01"
+            value={enteredPrice} // Allows for resetting of input after form submit
             onChange={priceChangeHandler}
           />
         </div>
@@ -43,6 +61,7 @@ const ExpenseForm = () => {
             type="date"
             min="2020-01-01"
             max="2025-12-31"
+            value={enteredDate} // Allows for resetting of input after form submit
             onChange={dateChangeHandler}
           />
         </div>
